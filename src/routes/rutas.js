@@ -6,7 +6,7 @@ var async = require("async");
 const _ = require('underscore');
 const { userInfo } = require('os');
 
-const json_hoteles = fs.readFileSync('src/sample.json', 'utf-8');
+const json_hoteles = fs.readFileSync('src/data.json', 'utf-8');
 let hoteles = JSON.parse(json_hoteles);
 
 
@@ -79,7 +79,7 @@ router.post('/grabar', (req, res) => {
         res.json(hoteles);
         
         const json_hoteles = JSON.stringify(hoteles)
-        fs.writeFileSync('src/sample.json', json_hoteles, 'utf-8');
+        fs.writeFileSync('src/data.json', json_hoteles, 'utf-8');
 
         res.redirect('/');
         
@@ -95,7 +95,7 @@ router.post('/grabar', (req, res) => {
 router.get('/delete/:id', (req, res)=>{
     hoteles = hoteles.filter(hotel => hotel.id != req.params.id);    
     const json_hoteles = JSON.stringify(hoteles)
-    fs.writeFileSync('src/sample.json', json_hoteles, 'utf-8');
+    fs.writeFileSync('src/data.json', json_hoteles, 'utf-8');
 
     res.redirect('/');
 
