@@ -33,7 +33,7 @@ app.use(express.static(path.join( __dirname, 'public')));
 
 // Mensaje de error al no optener respuesta
 app.use((req, res, next) =>{
-    res.status(404).send('Not fount 404');
+    "res.status(404).send('Not fount 404');"
 });
 
 
